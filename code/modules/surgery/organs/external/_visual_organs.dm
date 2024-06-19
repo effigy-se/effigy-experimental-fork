@@ -1,7 +1,7 @@
 /*
-System for drawing organs with overlays. These overlays are drawn directly on the bodypart, attached to a person or not
-Works in tandem with the /datum/sprite_accessory datum to generate sprites
-Unlike normal organs, we're actually inside a persons limbs at all times
+ System for drawing organs with overlays. These overlays are drawn directly on the bodypart, attached to a person or not
+ Works in tandem with the /datum/sprite_accessory datum to generate sprites
+ Unlike normal organs, we're actually inside a persons limbs at all times
 */
 /obj/item/organ
 	///The overlay datum that actually draws stuff on the limb
@@ -15,11 +15,6 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	///Set to EXTERNAL_BEHIND, EXTERNAL_FRONT or EXTERNAL_ADJACENT if you want to draw one of those layers as the object sprite. FALSE to use your own
 	///This will not work if it doesn't have a limb to generate its icon with
 	var/use_mob_sprite_as_obj_sprite = FALSE
-
-	///Does this organ have any bodytypes to pass to its bodypart_owner?
-	var/external_bodytypes = NONE
-	///Does this organ have any bodyshapes to pass to its bodypart_owner?
-	var/external_bodyshapes = NONE
 
 	///Which flags does a 'modification tool' need to have to restyle us, if it all possible (located in code/_DEFINES/mobs)
 	var/restyle_flags = NONE
@@ -88,6 +83,9 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	else if(bodypart_owner) //are we in a limb?
 		bodypart_owner.update_icon_dropped()
 	//else if(use_mob_sprite_as_obj_sprite) //are we out in the world, unprotected by flesh?
+
+/obj/item/organ/on_life(seconds_per_tick, times_fired)
+	return
 
 /obj/item/organ/update_overlays()
 	. = ..()

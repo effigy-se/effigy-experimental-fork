@@ -272,7 +272,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			return mutantstomach
 		else
 			// Non-standard organs we might have
-			for(var/obj/item/organ/extra_organ as anything in mutant_organs)
+			for(var/obj/item/organ/extra_organ as anything in external_organs)
 				if(initial(extra_organ.slot) == slot)
 					return extra_organ
 
@@ -293,29 +293,23 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	for(var/slot in get_all_slots())
 		var/obj/item/organ/existing_organ = organ_holder.get_organ_slot(slot)
 		var/obj/item/organ/new_organ = get_mutant_organ_type_for_slot(slot)
-		var/old_organ_type = old_species?.get_mutant_organ_type_for_slot(slot)
 
-		// if we have an extra organ that before changing that the species didnt have, remove it
-		if(!new_organ)
-			if(existing_organ && (old_organ_type == existing_organ.type || replace_current))
-				existing_organ.Remove(organ_holder)
-				qdel(existing_organ)
+		// if we have an extra organ that before changing that the species didnt have, we can keep it unless replace_current = TRUE
+		if(!new_organ && existing_organ && replace_current)
+			existing_organ.Remove(organ_holder)
+			qdel(existing_organ)
 			continue
 
-		if(existing_organ)
-			// we dont want to remove organs that were not from the old species (such as from freak surgery or prosthetics)
-			if(existing_organ.type != old_organ_type && !replace_current)
-				continue
-
-			// we don't want to remove organs that are the same as the new one
-			if(existing_organ.type == new_organ)
-				continue
+		// at this point we already know new_organ is not null
+		if(existing_organ?.type == new_organ)
+			continue // we don't want to remove organs that are the same as the new one
 
 		if(visual_only && (!initial(new_organ.bodypart_overlay) && !initial(new_organ.visual)))
 			continue
 
 		var/used_neworgan = FALSE
 		new_organ = SSwardrobe.provide_type(new_organ)
+		var/should_have = new_organ.get_availability(src, organ_holder) && should_visual_organ_apply_to(new_organ, organ_holder)
 		var/should_have = new_organ.get_availability(src, organ_holder) && should_visual_organ_apply_to(new_organ, organ_holder)
 
 		// Check for an existing organ, and if there is one check to see if we should remove it
@@ -521,7 +515,19 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		species_human.overlays_standing[BODY_LAYER] = standing
 
 	species_human.apply_overlay(BODY_LAYER)
-	update_body_markings(species_human)
+	handle_mutant_bodyparts(species_human)
+
+/**
+ * Handles the mutant bodyparts of a human
+ *
+ * Handles the adding and displaying of, layers, colors, and overlays of mutant bodyparts and accessories.
+ * Handles digitigrade leg displaying and squishing.
+ * Arguments:
+ * * H - Human, whoever we're handling the body for
+ * * forced_colour - The forced color of an accessory. Leave null to use mutant color.
+ */
+/datum/species/proc/handle_mutant_bodyparts(mob/living/carbon/human/source, forced_colour)
+	update_body_markings(source) //cleaaan
 
 //This exists so sprite accessories can still be per-layer without having to include that layer's
 //number in their sprite name, which causes issues when those numbers change.
@@ -564,9 +570,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	var/list/new_features = list()
 	var/static/list/organs_to_randomize = list()
-	for(var/obj/item/organ/organ_path as anything in mutant_organs)
-		if(!organ_path.bodypart_overlay)
-			continue
+	for(var/obj/item/organ/organ_path as anything in external_organs)
 		var/overlay_path = initial(organ_path.bodypart_overlay)
 		var/datum/bodypart_overlay/mutant/sample_overlay = organs_to_randomize[overlay_path]
 		if(isnull(sample_overlay))
@@ -1415,7 +1419,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		)
 			features += preference.savefile_key
 
-	for (var/obj/item/organ/organ_type as anything in mutant_organs)
+	for (var/obj/item/organ/organ_type as anything in external_organs)
 		var/preference = initial(organ_type.preference)
 		if (!isnull(preference))
 			features += preference
@@ -1460,7 +1464,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 /datum/species/proc/get_types_to_preload()
 	var/list/to_store = list()
 	to_store += mutant_organs
-	for(var/obj/item/organ/horny as anything in mutant_organs)
+	for(var/obj/item/organ/horny as anything in external_organs)
 		to_store += horny //Haha get it?
 
 	//Don't preload brains, cause reuse becomes a horrible headache
