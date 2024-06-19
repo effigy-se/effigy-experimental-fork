@@ -272,7 +272,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			return mutantstomach
 		else
 			// Non-standard organs we might have
-			for(var/obj/item/organ/extra_organ as anything in external_organs)
+			for(var/obj/item/organ/extra_organ as anything in mutant_organs)
 				if(initial(extra_organ.slot) == slot)
 					return extra_organ
 
@@ -515,7 +515,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		species_human.overlays_standing[BODY_LAYER] = standing
 
 	species_human.apply_overlay(BODY_LAYER)
-	handle_mutant_bodyparts(species_human)
+	update_body_markings(species_human)
 
 /**
  * Handles the mutant bodyparts of a human
@@ -570,7 +570,9 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	var/list/new_features = list()
 	var/static/list/organs_to_randomize = list()
-	for(var/obj/item/organ/organ_path as anything in external_organs)
+	for(var/obj/item/organ/organ_path as anything in mutant_organs)
+		if(!organ_path.bodypart_overlay)
+			continue
 		var/overlay_path = initial(organ_path.bodypart_overlay)
 		var/datum/bodypart_overlay/mutant/sample_overlay = organs_to_randomize[overlay_path]
 		if(isnull(sample_overlay))
@@ -1419,7 +1421,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		)
 			features += preference.savefile_key
 
-	for (var/obj/item/organ/organ_type as anything in external_organs)
+	for (var/obj/item/organ/organ_type as anything in mutant_organs)
 		var/preference = initial(organ_type.preference)
 		if (!isnull(preference))
 			features += preference
@@ -1464,7 +1466,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 /datum/species/proc/get_types_to_preload()
 	var/list/to_store = list()
 	to_store += mutant_organs
-	for(var/obj/item/organ/horny as anything in external_organs)
+	for(var/obj/item/organ/horny as anything in mutant_organs)
 		to_store += horny //Haha get it?
 
 	//Don't preload brains, cause reuse becomes a horrible headache
