@@ -25,18 +25,15 @@
 
 	original_owner ||= WEAKREF(receiver)
 
-	receiver.clear_mood_event("tail_lost")
-	receiver.clear_mood_event("tail_balance_lost")
-
-	// If it's your tail, an infinite debuff is replaced with a timed one
-	// If it's not your tail but of same species, I guess it works, but we are more sad
-	// If it's not your tail AND of different species, we are horrified
-	if(IS_WEAKREF_OF(receiver, original_owner))
-		receiver.add_mood_event("tail_regained", /datum/mood_event/tail_regained_right)
-	else if(type in receiver.dna.species.mutant_organs)
-		receiver.add_mood_event("tail_regained", /datum/mood_event/tail_regained_species)
-	else
-		receiver.add_mood_event("tail_regained", /datum/mood_event/tail_regained_wrong)
+		// If it's your tail, an infinite debuff is replaced with a timed one
+		// If it's not your tail but of same species, I guess it works, but we are more sad
+		// If it's not your tail AND of different species, we are horrified
+		if(IS_WEAKREF_OF(receiver, original_owner))
+			receiver.add_mood_event("tail_regained", /datum/mood_event/tail_regained_right)
+		else if(type in receiver.dna.species.mutant_organs)
+			receiver.add_mood_event("tail_regained", /datum/mood_event/tail_regained_species)
+		else
+			receiver.add_mood_event("tail_regained", /datum/mood_event/tail_regained_wrong)
 
 /obj/item/organ/external/tail/on_bodypart_insert(obj/item/bodypart/bodypart)
 	var/obj/item/organ/external/spines/our_spines = bodypart.owner.get_organ_slot(ORGAN_SLOT_EXTERNAL_SPINES)
