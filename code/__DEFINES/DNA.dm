@@ -62,7 +62,9 @@
 #define DNA_POD_HAIR_BLOCK 15
 #define DNA_MONKEY_TAIL_BLOCK 16
 
+/* EffigyEdit Change - DNA Extensions - Original:
 #define DNA_FEATURE_BLOCKS 16
+*/
 
 #define DNA_SEQUENCE_LENGTH 4
 #define DNA_MUTATION_BLOCKS 8
