@@ -524,18 +524,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	species_human.apply_overlay(BODY_LAYER)
 	update_body_markings(species_human)
 
-/**
- * Handles the mutant bodyparts of a human
- *
- * Handles the adding and displaying of, layers, colors, and overlays of mutant bodyparts and accessories.
- * Handles digitigrade leg displaying and squishing.
- * Arguments:
- * * H - Human, whoever we're handling the body for
- * * forced_colour - The forced color of an accessory. Leave null to use mutant color.
- */
-/datum/species/proc/handle_mutant_bodyparts(mob/living/carbon/human/source, forced_colour)
-	update_body_markings(source) //cleaaan
-
 //This exists so sprite accessories can still be per-layer without having to include that layer's
 //number in their sprite name, which causes issues when those numbers change.
 /datum/species/proc/mutant_bodyparts_layertext(layer)
