@@ -6362,6 +6362,8 @@
 #include "local\code\datums\sprite_accessories.dm"
 #include "local\code\modules\client\preferences\species_features\_mutants.dm"
 #include "local\code\modules\client\preferences\species_features\ears.dm"
+#include "local\code\modules\client\preferences\species_features\frills.dm"
+#include "local\code\modules\client\preferences\species_features\horns.dm"
 #include "local\code\modules\mob\living\carbon\human\species_types\anthro.dm"
 #include "local\code\modules\surgery\bodyparts\mutant.dm"
 #include "local\code\modules\surgery\organs\internal\tongue\_tongue.dm"
