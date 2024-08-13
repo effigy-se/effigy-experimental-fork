@@ -23,7 +23,7 @@
 	if(!(bodypart_flags & BODYPART_PSEUDOPART))
 		for(var/key in bodypart_markings) // Cycle through all of our currently selected markings.
 			var/datum/bodypart_marking/body_marking = SSaccessories.bodypart_markings[key]
-			if (!body_marking) // Edge case prevention.
+			if(!body_marking) // Edge case prevention.
 				continue
 
 			var/render_limb_string = limb_id == "digitigrade" ? ("digitigrade_1_" + body_zone) : body_zone // I am not sure why there are _1 and _2 versions of digi, so, it's staying like this.

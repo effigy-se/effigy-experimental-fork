@@ -54,7 +54,7 @@
 */
 
 /datum/preference_middleware/limbs_and_markings/apply_to_human(mob/living/carbon/human/target, datum/preferences/preferences, visuals_only = FALSE)
-	target.dna.species.body_markings = LAZYCOPY(preferences.bodypart_markings)
+	target.dna.species.bodypart_markings = LAZYCOPY(preferences.bodypart_markings)
 
 	target.synchronize_bodytypes() // We call this here to ensure that by this point, bodytypes are synchronized, after all changes to the limbs.
 	target.synchronize_bodyshapes()

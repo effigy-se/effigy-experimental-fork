@@ -535,6 +535,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 		preference.apply_to_human(character, read_preference(preference.type))
 
+	// EffigyEdit Add - DNA Extensions
+	for(var/datum/preference_middleware/preference_middleware as anything in middleware)
+		preference_middleware.apply_to_human(character, src, visuals_only = FALSE)
+	// EffigyEdit Add End
+
 	character.dna.real_name = character.real_name
 
 	if(icon_updates)

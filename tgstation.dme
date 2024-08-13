@@ -6363,6 +6363,8 @@
 #include "local\code\controllers\subsystem\sprite_accessories.dm"
 #include "local\code\datums\body_markings.dm"
 #include "local\code\datums\bodypart_overlay.dm"
+#include "local\code\datums\dna.dm"
+#include "local\code\datums\species.dm"
 #include "local\code\datums\sprite_accessories.dm"
 #include "local\code\modules\client\preferences\preferences.dm"
 #include "local\code\modules\client\preferences\middleware\_middleware.dm"

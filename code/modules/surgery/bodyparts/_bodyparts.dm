@@ -953,6 +953,14 @@
 	if(should_draw_greyscale) //Should the limb be colored?
 		draw_color ||= species_color || (skin_tone ? skintone2hex(skin_tone) : null)
 
+	// EffigyEdit Add - DNA Extensions
+	var/datum/species/owner_species = human_owner.dna.species
+
+	bodypart_markings = LAZYCOPY(owner.dna.species.bodypart_markings[body_zone])
+	if(aux_zone)
+		aux_zone_markings = LAZYCOPY(owner.dna.species.bodypart_markings[aux_zone])
+	// EffigyEdit Add End
+
 	recolor_bodypart_overlays()
 	return TRUE
 
