@@ -22,3 +22,5 @@
 
 /// This number needs to equal the total number of DNA feature blocks
 #define DNA_FEATURE_BLOCKS 26
+
+#define MAXIMUM_MARKINGS_PER_LIMB 3

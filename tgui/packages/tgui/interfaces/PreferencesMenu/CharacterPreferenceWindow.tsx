@@ -6,6 +6,7 @@ import { Button, Stack } from '../../components';
 import { Window } from '../../layouts';
 import { AntagsPage } from './AntagsPage';
 import { PreferencesMenuData } from './data';
+import { LimbsPage } from './effigy/LimbsPage';
 import { MainPage } from './effigy/MainPage';
 import { JobsPage } from './JobsPage';
 import { LoadoutPage } from './loadout/index';
@@ -17,6 +18,7 @@ enum Page {
   Antags,
   Main,
   Jobs,
+  Limbs,
   Species,
   Quirks,
   Loadout,
@@ -61,6 +63,9 @@ export const CharacterPreferenceWindow = (props) => {
       break;
     case Page.Jobs:
       pageContents = <JobsPage />;
+      break;
+    case Page.Limbs:
+      pageContents = <LimbsPage />;
       break;
     case Page.Main:
       pageContents = (
@@ -117,6 +122,16 @@ export const CharacterPreferenceWindow = (props) => {
                   otherActivePages={[Page.Species]}
                 >
                   Character
+                </PageButton>
+              </Stack.Item>
+
+              <Stack.Item grow>
+                <PageButton
+                  currentPage={currentPage}
+                  page={Page.Limbs}
+                  setPage={setCurrentPage}
+                >
+                  Limbs
                 </PageButton>
               </Stack.Item>
 

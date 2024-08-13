@@ -95,6 +95,28 @@ export type QuirkInfo = {
   points_enabled: boolean;
 };
 
+export type Marking = {
+  name: string;
+  color: string;
+  marking_id: string;
+};
+
+export type MarkingData = {
+  marking_choices: string[];
+  markings_list: Marking[];
+};
+
+export type Limb = {
+  slot: string;
+  name: string;
+  can_augment: boolean;
+  chosen_aug: string;
+  chosen_style: string;
+  aug_choices: Record<string, string>;
+  costs: Record<string, number>;
+  markings: MarkingData;
+};
+
 export enum RandomSetting {
   AntagOnly = 1,
   Disabled = 2,
@@ -180,6 +202,8 @@ export type PreferencesMenuData = {
   name_to_use: string;
 
   window: Window;
+  // EffigyEdit Add
+  limbs_data: Limb[];
 };
 
 export type ServerData = {

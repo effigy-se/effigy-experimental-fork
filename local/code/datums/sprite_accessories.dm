@@ -1,6 +1,3 @@
-/datum/controller/subsystem/accessories
-	var/list/cached_mutant_sprite_accessories = list()
-
 /datum/sprite_accessory
 	var/feature_key = null
 	///When the color selection is DNA_INDEX_COLOR, this is the DNA extension block that is read from a character to get the saved mutant part color.
