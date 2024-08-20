@@ -19,6 +19,33 @@
 			if("m_[feature_key]_[icon_state]_[layer_state]_tertiary" in SSaccessories.cached_mutant_sprite_accessories[icon])
 				color_channels["3"] = "tertiary"
 
+/datum/sprite_accessory/ears/cat
+	icon = 'local/icons/mob/mutant/sprite_accessories/ears.dmi'
+	feature_key = "ears"
+	dna_color = "dna_ears_color"
+	color_src = DNA_INDEX_COLOR
+	accessory_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
+
+/datum/sprite_accessory/ears/cat/tajaran/catbig
+	name = "Cat, Big"
+	icon_state = "catbig"
+
+/datum/sprite_accessory/ears/cat/tajaran/catnormal
+	name = "Cat, normal"
+	icon_state = "catnormal"
+
+/datum/sprite_accessory/ears/cat/eevee
+	name = "Eevee"
+	icon_state = "eevee"
+
+/datum/sprite_accessory/ears/cat/fennec
+	name = "Fennec"
+	icon_state = "fennec"
+
+/datum/sprite_accessory/ears/cat/husky
+	name = "Husky"
+	icon_state = "wolf"
+
 /datum/sprite_accessory/tails/anthro
 	icon = 'local/icons/mob/mutant/sprite_accessories/tails.dmi'
 	feature_key = "tail_anthro"
@@ -109,6 +136,9 @@
 
 /datum/sprite_accessory/frills
 	dna_color = "dna_frills_color"
+	feature_key = "frills"
+	//color_src = DNA_INDEX_COLOR
+	accessory_layers = list(BODY_ADJ_LAYER)
 
 /datum/sprite_accessory/snouts
 	dna_color = "dna_snout_color"

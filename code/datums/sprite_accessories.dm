@@ -1885,10 +1885,10 @@
 	icon = 'icons/mob/human/cat_features.dmi'
 	em_block = TRUE
 
+/*
 /datum/sprite_accessory/ears/cat
 	name = "Cat"
 	icon_state = "cat"
-	color_src = HAIR_COLOR
 
 /datum/sprite_accessory/ears/cat/big
 	name = "Big"
@@ -1909,6 +1909,7 @@
 /datum/sprite_accessory/ears/cat/round
 	name = "Round"
 	icon_state = "round"
+*/
 
 /datum/sprite_accessory/ears/fox
 	icon = 'icons/mob/human/fox_features.dmi'
