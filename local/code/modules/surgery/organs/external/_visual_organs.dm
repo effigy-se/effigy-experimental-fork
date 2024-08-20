@@ -5,11 +5,11 @@
 	var/dna_color = human_owner.dna.features[sprite_datum.dna_color]
 
 	if(!dna_color || !islist(dna_color))
-		debug_effigy("bodypart overlay [src] has no DNA color, using fallback.", PREF)
+		debug_effigy("bodypart overlay [cache_key] has no DNA color, using fallback.", PREF)
 		dna_color = "#66CCFF"
 		return dna_color
 
-	debug_effigy("bodypart overlay [src] found DNA colors [dna_color[1]] [dna_color[2]] [dna_color[3]]", PREF)
+	debug_effigy("bodypart overlay [cache_key] found DNA colors [dna_color[1]] [dna_color[2]] [dna_color[3]]", PREF)
 	return dna_color
 
 /// Colors the given overlays list. bodypart_owner can be null.
@@ -54,3 +54,7 @@
 
 /datum/bodypart_overlay/mutant/cat_ears
 	color_source = ORGAN_COLOR_OVERRIDE
+
+///Update our features after something changed our appearance
+/obj/item/organ/mutate_feature(features, mob/living/carbon/human/human)
+	return

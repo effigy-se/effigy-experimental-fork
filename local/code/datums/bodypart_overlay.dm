@@ -106,3 +106,19 @@
 	LAZYADD(last_built_icon_states, built_icon_state)
 
 	return built_icon_state
+
+/// Generate a unique key based on our sprites. So that if we've aleady drawn these sprites,
+/// they can be found in the cache and wont have to be drawn again (blessing and curse, but mostly curse)
+/datum/bodypart_overlay/mutant/generate_icon_cache()
+	. = list()
+	. += "[get_base_icon_state()]"
+	. += "[get_feature_key_for_overlay()]"
+
+	if(islist(draw_color))
+		for(var/sub_color in draw_color)
+			. += "[sub_color]"
+
+	else
+		. += "[draw_color]"
+
+	return .

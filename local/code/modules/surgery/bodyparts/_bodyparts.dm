@@ -68,3 +68,15 @@
 					. += emissive
 
 	return .
+
+/obj/item/bodypart/generate_icon_key()
+	RETURN_TYPE(/list)
+	. = ..()
+	if(current_style)
+		. += "-[current_style]"
+
+	for(var/key in bodypart_markings)
+		. += limb_id == "digitigrade" ? ("digitigrade_1_" + body_zone) : body_zone
+		. += "-[key]_[bodypart_markings[key][1]]]"
+
+	return .
