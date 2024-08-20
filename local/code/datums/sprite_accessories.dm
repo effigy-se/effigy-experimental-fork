@@ -50,88 +50,75 @@
 	icon = 'local/icons/mob/mutant/sprite_accessories/tails.dmi'
 	feature_key = "tail_anthro"
 	dna_color = "dna_tail_color"
-	//color_channels = SPRITE_ACCESSORY_DUAL_COLOR
 	color_src = DNA_INDEX_COLOR
 	accessory_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 
 /datum/sprite_accessory/tails/anthro/none
 	name = "None"
 	icon_state = "none"
-	//color_channels = SPRITE_ACCESSORY_SOLO_COLOR
 
 /datum/sprite_accessory/tails/anthro/fennec
-	name = "Fennec (Dual)"
+	name = "Fennec"
 	icon_state = "fennec"
 
 /datum/sprite_accessory/tails/anthro/murid
-	name = "Murid (Single)"
+	name = "Murid"
 	icon_state = "murid"
-	//color_channels = SPRITE_ACCESSORY_SOLO_COLOR
 
 /datum/sprite_accessory/tails/anthro/murid_two
-	name = "Murid Alt (Single)"
+	name = "Murid Alt"
 	icon_state = "murid_two"
-	//color_channels = SPRITE_ACCESSORY_SOLO_COLOR
 
 /datum/sprite_accessory/tails/anthro/shark
-	name = "Shark (Single)"
+	name = "Shark"
 	icon_state = "shark"
-	//color_channels = SPRITE_ACCESSORY_SOLO_COLOR
 
 /datum/sprite_accessory/tails/anthro/hawk
-	name = "Hawk (Dual)"
+	name = "Hawk"
 	icon_state = "hawk"
 
 /datum/sprite_accessory/tails/anthro/otie
-	name = "Otie (Single)"
+	name = "Otie"
 	icon_state = "otie"
-	//color_channels = SPRITE_ACCESSORY_SOLO_COLOR
 
 /datum/sprite_accessory/tails/anthro/australian_shepherd
-	name = "Australian Shepherd (Dual)"
+	name = "Australian Shepherd"
 	icon_state = "australianshepherd"
 
 /datum/sprite_accessory/tails/anthro/wah
-	name = "Wah (Dual)"
+	name = "Wah"
 	icon_state = "wah"
 
 /datum/sprite_accessory/tails/anthro/guilmon
-	name = "Guilmon (Single)"
+	name = "Guilmon"
 	icon_state = "guilmon"
-	//color_channels = SPRITE_ACCESSORY_SOLO_COLOR
 
 /datum/sprite_accessory/tails/anthro/rabbit
-	name = "Rabbit (Single)"
+	name = "Rabbit"
 	icon_state = "rabbit"
-	//color_channels = SPRITE_ACCESSORY_SOLO_COLOR
 
 /datum/sprite_accessory/tails/anthro/sabresun
-	name = "Sabresun (Dual)"
+	name = "Sabresun"
 	icon_state = "sabresun"
 
 /datum/sprite_accessory/tails/anthro/sergal
-	name = "Sergal (Dual)"
+	name = "Sergal"
 	icon_state = "sergal"
 
 /datum/sprite_accessory/tails/anthro/tiger
-	name = "Tiger (Triple)"
+	name = "Tiger"
 	icon_state = "tiger"
-	//color_channels = SPRITE_ACCESSORY_DUAL_COLOR
 
 /datum/sprite_accessory/tails/anthro/eevee
-	name = "Eevee (Dual)"
+	name = "Eevee"
 	icon_state = "eevee"
 
 /datum/sprite_accessory/tails/anthro/husky
-	name = "Husky (Dual)"
+	name = "Husky"
 	icon_state = "husky"
 
-/datum/sprite_accessory/tails/anthro/husky_debug
-	name = "Husky Debug (Dual)"
-	icon_state = "husky2"
-
 /datum/sprite_accessory/tails/anthro/leopard
-	name = "Leopard (Tertiary Conversion)"
+	name = "Leopard"
 	icon_state = "leopard"
 
 /datum/sprite_accessory/frills
