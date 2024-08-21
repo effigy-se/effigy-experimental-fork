@@ -1747,6 +1747,8 @@
 /datum/sprite_accessory/tails/lizard
 	icon = 'icons/mob/human/species/lizard/lizard_tails.dmi'
 	spine_key = SPINE_KEY_LIZARD
+	dna_color = "dna_tail_color"
+	color_src = DNA_SOLO_COLOR
 
 /datum/sprite_accessory/tails/lizard/none
 	name = SPRITE_ACCESSORY_NONE
@@ -1841,6 +1843,7 @@
 	icon = 'icons/mob/human/species/lizard/lizard_misc.dmi'
 	em_block = TRUE
 
+/*
 /datum/sprite_accessory/snouts/sharp
 	name = "Sharp"
 	icon_state = "sharp"
@@ -1856,6 +1859,7 @@
 /datum/sprite_accessory/snouts/roundlight
 	name = "Round + Light"
 	icon_state = "roundlight"
+*/
 
 /datum/sprite_accessory/horns
 	icon = 'icons/mob/human/species/lizard/lizard_misc.dmi'

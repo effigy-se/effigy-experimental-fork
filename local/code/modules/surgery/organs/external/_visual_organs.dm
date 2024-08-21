@@ -55,6 +55,9 @@
 /datum/bodypart_overlay/mutant/cat_ears
 	color_source = ORGAN_COLOR_OVERRIDE
 
+/datum/bodypart_overlay/mutant/tail
+	color_source = ORGAN_COLOR_OVERRIDE
+
 ///Update our features after something changed our appearance
 /obj/item/organ/mutate_feature(features, mob/living/carbon/human/human)
 	return

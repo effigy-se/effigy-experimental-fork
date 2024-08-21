@@ -166,7 +166,6 @@
 	name = "Neck Frills (Fuller)"
 	icon_state = "neckfull"
 
-
 /datum/sprite_accessory/snouts
 	dna_color = "dna_snout_color"
 	feature_key = "snout"
