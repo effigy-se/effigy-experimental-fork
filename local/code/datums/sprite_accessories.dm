@@ -26,6 +26,10 @@
 	color_src = DNA_INDEX_COLOR
 	accessory_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 
+/datum/sprite_accessory/ears/cat/none
+	name = "None"
+	icon_state = "none"
+
 /datum/sprite_accessory/ears/cat/tajaran/catbig
 	name = "Cat, Big"
 	icon_state = "catbig"
