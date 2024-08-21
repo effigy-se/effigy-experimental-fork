@@ -101,6 +101,7 @@
 	maptext_width = 480
 
 /atom/movable/screen/swap_hand
+	plane = HUD_PLANE
 	name = "swap hand"
 
 /atom/movable/screen/swap_hand/Click()
@@ -481,26 +482,8 @@
 
 	return TRUE
 
-/atom/movable/screen/storage/cell
-
-/atom/movable/screen/storage/cell/mouse_drop_receive(atom/target, mob/living/user, params)
-	var/datum/storage/storage = master_ref?.resolve()
-
-	if (isnull(storage) || !istype(user) || storage != user.active_storage)
-		return
-
-	if (!user.can_perform_action(storage.parent, FORBID_TELEKINESIS_REACH))
-		return
-
-	if (target.loc != storage.real_location)
-		return
-
-	/// Due to items in storage ignoring transparency for click hitboxes, this only can happen if we drag onto a free cell - aka after all current contents
-	storage.real_location.contents -= target
-	storage.real_location.contents += target
-	storage.refresh_views()
-
 /atom/movable/screen/storage/corner
+	name = "storage"
 	icon_state = "storage_corner_topleft"
 
 /atom/movable/screen/storage/corner/top_right
@@ -886,9 +869,9 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/splash)
 /atom/movable/screen/hunger/update_appearance(updates)
 	var/old_state = state
 	update_hunger_state() // Do this before we call all the other update procs
+	. = ..()
 	if(state == old_state) // Let's not be wasteful
 		return
-	. = ..()
 	if(state == HUNGER_STATE_FINE)
 		SetInvisibility(INVISIBILITY_ABSTRACT, name)
 		return
@@ -906,10 +889,9 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/splash)
 		remove_filter("hunger_outline")
 
 	// Update color of the food
-	if((state == HUNGER_STATE_FAT) != (old_state == HUNGER_STATE_FAT))
-		underlays -= food_image
-		food_image.color = state == HUNGER_STATE_FAT ? COLOR_DARK : null
-		underlays += food_image
+	underlays -= food_image
+	food_image.color = state == HUNGER_STATE_FAT ? COLOR_DARK : null
+	underlays += food_image
 
 /atom/movable/screen/hunger/update_icon_state()
 	. = ..()

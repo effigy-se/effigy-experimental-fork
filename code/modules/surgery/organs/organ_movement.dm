@@ -18,9 +18,6 @@
 	mob_insert(receiver, special, movement_flags)
 	bodypart_insert(limb_owner = receiver, movement_flags = movement_flags)
 
-	if(!special)
-		receiver.update_body_parts()
-
 /*
  * Remove the organ from the select mob.
  *
@@ -32,9 +29,6 @@
 
 	mob_remove(organ_owner, special, movement_flags)
 	bodypart_remove(limb_owner = organ_owner, movement_flags = movement_flags)
-
-	if(!special)
-		organ_owner.update_body_parts()
 
 /*
  * Insert the organ into the select mob.
@@ -173,10 +167,6 @@
 	UnregisterSignal(organ_owner, COMSIG_ATOM_EXAMINE)
 	SEND_SIGNAL(src, COMSIG_ORGAN_REMOVED, organ_owner)
 	SEND_SIGNAL(organ_owner, COMSIG_CARBON_LOSE_ORGAN, src, special)
-	ADD_TRAIT(src, TRAIT_USED_ORGAN, ORGAN_TRAIT)
-
-	organ_owner.synchronize_bodytypes()
-	organ_owner.synchronize_bodyshapes()
 
 	var/list/diseases = organ_owner.get_static_viruses()
 	if(!LAZYLEN(diseases))
@@ -235,6 +225,10 @@
 		update_appearance(UPDATE_OVERLAYS)
 
 	color = bodypart_overlay.draw_color // so a pink felinid doesn't drop a gray tail
+
+/obj/item/organ/on_bodypart_remove(obj/item/bodypart/bodypart)
+
+	return ..()
 
 /// In space station videogame, nothing is sacred. If somehow an organ is removed unexpectedly, handle it properly
 /obj/item/organ/proc/forced_removal()

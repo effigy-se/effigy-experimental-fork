@@ -16,6 +16,11 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 	///This will not work if it doesn't have a limb to generate its icon with
 	var/use_mob_sprite_as_obj_sprite = FALSE
 
+	///Does this organ have any bodytypes to pass to its bodypart_owner?
+	var/external_bodytypes = NONE
+	///Does this organ have any bodyshapes to pass to its bodypart_owner?
+	var/external_bodyshapes = NONE
+
 	///Which flags does a 'modification tool' need to have to restyle us, if it all possible (located in code/_DEFINES/mobs)
 	var/restyle_flags = NONE
 

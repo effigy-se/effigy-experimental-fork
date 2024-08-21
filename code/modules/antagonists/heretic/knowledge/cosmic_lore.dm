@@ -1,5 +1,7 @@
 /**
  * # The path of Cosmos.
+ * Spell names are in this language: SUMERIAN
+ * Both are related: Sumerian-Original-Primordial-Cosmic
  *
  * Goes as follows:
  *
@@ -51,7 +53,7 @@
 	cost = 1
 	route = PATH_COSMIC
 	depth = 3
-	research_tree_icon_path = 'icons/ui/antags/heretic/knowledge.dmi'
+	research_tree_icon_path = 'icons/ui_icons/antags/heretic/knowledge.dmi'
 	research_tree_icon_state = "grasp_cosmos"
 
 /datum/heretic_knowledge/cosmic_grasp/on_gain(mob/user, datum/antagonist/heretic/our_heretic)
@@ -143,7 +145,7 @@
 		The blades now glistened with fragmented power. I fell to the ground and wept at the beast's feet."
 	next_knowledge = list(/datum/heretic_knowledge/spell/cosmic_expansion)
 	route = PATH_COSMIC
-	research_tree_icon_path = 'icons/ui/antags/heretic/knowledge.dmi'
+	research_tree_icon_path = 'icons/ui_icons/antags/heretic/knowledge.dmi'
 	research_tree_icon_state = "blade_upgrade_cosmos"
 	/// Storage for the second target.
 	var/datum/weakref/second_target
@@ -283,7 +285,7 @@
 		text = "[generate_heretic_text()] A Star Gazer has arrived into the station, [user.real_name] has ascended! This station is the domain of the Cosmos! [generate_heretic_text()]",
 		title = "[generate_heretic_text()]",
 		sound = 'sound/ambience/antag/heretic/ascend_cosmic.ogg',
-		color_override = "pink",
+		color_override = "purple",
 	)
 	var/mob/living/basic/heretic_summon/star_gazer/star_gazer_mob = new /mob/living/basic/heretic_summon/star_gazer(loc)
 	star_gazer_mob.maxHealth = INFINITY

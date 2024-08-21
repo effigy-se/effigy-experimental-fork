@@ -189,9 +189,9 @@
 /obj/item/crowbar/cyborg
 	name = "hydraulic crowbar"
 	desc = "A hydraulic prying tool, simple but powerful."
-	icon = 'icons/mob/silicon/robot_items.dmi'
+	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "toolkit_engiborg_crowbar"
-	worn_icon_state = "toolkit_engiborg_crowbar" //error sprite - this shouldn't have been dropped
+	worn_icon_state = "crowbar"
 	usesound = 'sound/items/jaws_pry.ogg'
 	force = 10
 	toolspeed = 0.5

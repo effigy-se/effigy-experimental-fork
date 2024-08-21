@@ -5,8 +5,9 @@
 	inhand_icon_state = null
 	novariants = TRUE
 	merge_type = /obj/item/stack/sheet/animalhide
-	pickup_sound = 'sound/items/skin_pick_up.ogg'
-	drop_sound = 'sound/items/skin_drop.ogg'
+
+	pickup_sound = null
+	drop_sound = null
 
 /obj/item/stack/sheet/animalhide/human
 	name = "human skin"
@@ -193,8 +194,6 @@ GLOBAL_LIST_INIT(carp_recipes, list ( \
 	icon_state = "sheet-leather"
 	inhand_icon_state = null
 	merge_type = /obj/item/stack/sheet/leather
-	pickup_sound = 'sound/items/skin_pick_up.ogg'
-	drop_sound = 'sound/items/skin_drop.ogg'
 
 GLOBAL_LIST_INIT(leather_recipes, list ( \
 	new/datum/stack_recipe("wallet", /obj/item/storage/wallet, 1, crafting_flags = NONE, category = CAT_CONTAINERS), \
@@ -239,14 +238,12 @@ GLOBAL_LIST_INIT(leather_recipes, list ( \
  */
 /obj/item/stack/sheet/sinew
 	name = "watcher sinew"
-	icon = 'icons/obj/mining_zones/equipment.dmi'
+	icon = 'icons/obj/mining.dmi'
 	desc = "Long stringy filaments which presumably came from a watcher's wings."
 	singular_name = "watcher sinew"
 	icon_state = "sinew"
 	novariants = TRUE
 	merge_type = /obj/item/stack/sheet/sinew
-	drop_sound = 'sound/effects/meatslap.ogg'
-	pickup_sound = 'sound/effects/meatslap.ogg'
 
 /obj/item/stack/sheet/sinew/Initialize(mapload, new_amount, merge, list/mat_override, mat_amt)
 	. = ..()

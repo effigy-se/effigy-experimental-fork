@@ -741,11 +741,9 @@ SUBSYSTEM_DEF(job)
 	if(!spawn_turf)
 		SendToLateJoin(living_mob)
 	else
-		podspawn(list(
-			"target" = spawn_turf,
-			"path" = /obj/structure/closet/supplypod/centcompod,
-			"spawn" = living_mob
-		))
+		var/obj/structure/closet/supplypod/centcompod/toLaunch = new()
+		living_mob.forceMove(toLaunch)
+		new /obj/effect/pod_landingzone(spawn_turf, toLaunch)
 
 /// Returns a list of minds of all heads of staff who are alive
 /datum/controller/subsystem/job/proc/get_living_heads()

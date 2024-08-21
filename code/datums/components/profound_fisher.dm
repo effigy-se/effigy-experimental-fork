@@ -58,6 +58,5 @@
 /obj/item/fishing_rod/mob_fisher
 	display_fishing_line = FALSE
 	line = /obj/item/fishing_line/reinforced
-	bait = /obj/item/food/bait/doughball/synthetic/unconsumable
 
 

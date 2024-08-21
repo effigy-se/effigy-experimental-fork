@@ -142,7 +142,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	return
 
 /obj/item/organ/proc/on_life(seconds_per_tick, times_fired)
-	return
+	CRASH("Oh god oh fuck something is calling parent organ life")
 
 /obj/item/organ/examine(mob/user)
 	. = ..()
