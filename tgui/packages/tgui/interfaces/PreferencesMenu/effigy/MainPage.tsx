@@ -34,7 +34,7 @@ import { ServerPreferencesFetcher } from '../ServerPreferencesFetcher';
 import { useRandomToggleState } from '../useRandomToggleState';
 
 const CLOTHING_CELL_SIZE = 125;
-const CLOTHING_SIDEBAR_ROWS = 5;
+const CLOTHING_SIDEBAR_ROWS = 4;
 
 const CLOTHING_SELECTION_CELL_SIZE = 72;
 const CLOTHING_SELECTION_WIDTH = 5.6;
@@ -379,17 +379,6 @@ const MainFeature = (props: {
         <br />
         {currentValue}
       </Button>
-      <Box
-        mb={0}
-        style={{
-          // Text below feature buttons
-          height: `14px`,
-          width: `${CLOTHING_CELL_SIZE}px`,
-          overflowWrap: 'anywhere',
-        }}
-        textAlign="center"
-        textColor="#e6e7eb"
-      />
     </Popper>
   );
 };
@@ -629,7 +618,7 @@ export const MainPage = (props: { openSpecies: () => void }) => {
                 </Stack>
               </Stack.Item>
 
-              <Stack.Item width={`${CLOTHING_CELL_SIZE * 2 + 15}px`}>
+              <Stack.Item width={`${CLOTHING_CELL_SIZE * 3}px`}>
                 <Stack height="100%" vertical wrap>
                   {mainFeatures.map(([clothingKey, clothing]) => {
                     const catalog =
@@ -640,7 +629,7 @@ export const MainPage = (props: { openSpecies: () => void }) => {
 
                     return (
                       catalog && (
-                        <Stack.Item key={clothingKey} mt={0.5} px={0.5}>
+                        <Stack.Item key={clothingKey} mt={0} mb={2.5} px={0.5}>
                           <MainFeature
                             catalog={catalog}
                             currentValue={clothing}
