@@ -126,16 +126,53 @@
 	icon_state = "leopard"
 
 /datum/sprite_accessory/frills
+	icon = 'local/icons/mob/mutant/sprite_accessories/frills.dmi'
 	dna_color = "dna_frills_color"
 	feature_key = "frills"
-	//color_src = DNA_INDEX_COLOR
+	color_src = DNA_SOLO_COLOR
 	accessory_layers = list(BODY_ADJ_LAYER)
+
+/datum/sprite_accessory/frills/divinity
+	name = "Divinity"
+	icon_state = "divinity"
+
+/datum/sprite_accessory/frills/horns
+	name = "Horns"
+	icon_state = "horns"
+
+/datum/sprite_accessory/frills/hornsdouble
+	name = "Horns Double"
+	icon_state = "hornsdouble"
+
+/datum/sprite_accessory/frills/big
+	name = "Big"
+	icon_state = "big"
+
+/datum/sprite_accessory/frills/cobrahood
+	name = "Cobra Hood"
+	icon_state = "cobrahood"
+	color_src = DNA_INDEX_COLOR
+
+/datum/sprite_accessory/frills/cobrahoodears
+	name = "Cobra Hood (Ears)"
+	icon_state = "cobraears"
+	color_src = DNA_INDEX_COLOR
+
+/datum/sprite_accessory/frills/neckfrills
+	name = "Neck Frills"
+	icon_state = "neck"
+
+/datum/sprite_accessory/frills/neckfrillsfuller
+	name = "Neck Frills (Fuller)"
+	icon_state = "neckfull"
+
 
 /datum/sprite_accessory/snouts
 	dna_color = "dna_snout_color"
 	feature_key = "snout"
 	color_src = DNA_INDEX_COLOR
 	accessory_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
+	em_block = TRUE
 
 /datum/sprite_accessory/snouts/anthro
 	icon = 'local/icons/mob/mutant/sprite_accessories/snouts.dmi'
